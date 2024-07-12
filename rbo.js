@@ -5,6 +5,9 @@
             verify: { projectID: '65d930a9e996d1330850cd32' },
             url: 'https://proxy.readybotone.io',
             versionID: 'production',
+            assistant: {
+                stylesheet:"https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css"
+            },
             launch: {
                 event: {
                     type: "launch",

@@ -6,7 +6,7 @@
             url: 'https://proxy.readybotone.io',
             versionID: 'production',
             assistant: {
-                stylesheet:"https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css"
+                stylesheet:"https://cdn.jsdelivr.net/gh/ready-bot-one/widget@v0.1.0/rbo.css"
             },
             launch: {
                 event: {

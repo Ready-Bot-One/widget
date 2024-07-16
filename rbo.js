@@ -6,8 +6,8 @@
           url: "https://proxy.readybotone.io",
           versionID: "production",
           assistant: {
-            color: window.RBO.shopifyColor,
-            avatar: window.RBO.shopifyAvatarImage,
+            color: `rgba(${window.RBO.shopifyColor})`,
+            image: window.RBO.shopifyAvatarImage,
             stylesheet:
               "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css",
           },

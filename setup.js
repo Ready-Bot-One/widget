@@ -21,7 +21,7 @@
   window.RBO.shopifyStore = shopifyStoreName
   window.RBO.shopifyAvatarImage = shopifyAvatarImage
   window.RBO.shopifyColor = shopifyColor
-
+ console.log("windowRBO", window.RBO)
   var scriptURL = "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.js"
   var scriptElement = document.createElement("script")
   scriptElement.src = scriptURL

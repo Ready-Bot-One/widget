@@ -8,13 +8,13 @@
     })()
 
   var shopifyStoreName = currentScript.getAttribute("data-shopify-id")
-  var shopifyAvatarImage =
-    currentScript.getAttribute("data-avatar-image") === ""
-      ? "https://i.imgur.com/dfUvzRb.png"
-      : currentScript.getAttribute("data-avatar-image")
+  // var shopifyAvatarImage =
+  //   currentScript.getAttribute("data-avatar-image") === ""
+  //     ? "https://i.imgur.com/dfUvzRb.png"
+  //     : currentScript.getAttribute("data-avatar-image")
   var shopifyColor =
     currentScript.getAttribute("data-color") === ""
-      ? "#252525"
+      ? "#000000"
       : currentScript.getAttribute("data-color")
 
   if (!shopifyStoreName) {
@@ -24,12 +24,12 @@
 
   window.RBO = window.RBO || {}
   window.RBO.shopifyStore = shopifyStoreName
-  window.RBO.shopifyAvatarImage = shopifyAvatarImage
+  // window.RBO.shopifyAvatarImage = shopifyAvatarImage
   window.RBO.shopifyColor = shopifyColor
 
   console.log("windowRBO", window.RBO)
   console.log("data-color", currentScript.getAttribute("data-color"))
-  console.log("data-image", currentScript.getAttribute("data-avatar-image"))
+  // console.log("data-image", currentScript.getAttribute("data-avatar-image"))
 
   var scriptURL = "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.js"
   var scriptElement = document.createElement("script")

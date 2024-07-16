@@ -7,8 +7,8 @@
           versionID: "production",
           assistant: {
             color: window.RBO.shopifyColor,
-            image: window.RBO.shopifyAvatarImage,
-            avatar: window.RBO.shopifyAvatarImage,
+            // image: window.RBO.shopifyAvatarImage,
+            // avatar: window.RBO.shopifyAvatarImage,
             stylesheet:
               "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css",
           },

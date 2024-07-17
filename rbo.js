@@ -28,14 +28,14 @@
 let style = document.createElement("style")
 style.innerHTML = `
 .vfrc-avatar {
-    background-image: url(${window.RBO.shopifyAvatarImage}) !important;
+    background-image: url("${window.RBO.shopifyAvatarImage}") !important;
 }`
 
 console.log(
   "styles",
   `
 .vfrc-avatar {
-    background-image: url(${window.RBO.shopifyAvatarImage}) !important;
+    background-image: url("${window.RBO.shopifyAvatarImage}") !important;
 }`
 )
 document.head.appendChild(style)

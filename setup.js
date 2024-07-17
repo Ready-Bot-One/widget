@@ -7,11 +7,9 @@
       ]
     })()
 
-  var shopifyStoreName = currentScript.getAttribute("data-shopify-id")
-  var shopifyAvatarImage =
-    currentScript.getAttribute("data-avatar-image") ??
-    "https://i.imgur.com/dfUvzRb.png"
-  var shopifyColor = currentScript.getAttribute("data-color") ?? "#000000"
+  var shopifyStoreName = currentScript?.getAttribute("data-shopify-id")
+  var shopifyAvatarImage = currentScript?.getAttribute("data-avatar-image")
+  var shopifyColor = currentScript?.getAttribute("data-color")
 
   if (!shopifyStoreName) {
     console.error("data-shopify-id was not provided.")
@@ -23,9 +21,7 @@
   window.RBO.shopifyAvatarImage = shopifyAvatarImage
   window.RBO.shopifyColor = shopifyColor
 
-  console.log("windowRBO", window.RBO)
-  console.log("data-color", currentScript.getAttribute("data-color"))
-  console.log("data-image", currentScript.getAttribute("data-avatar-image"))
+
 
   var scriptURL = "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.js"
   var scriptElement = document.createElement("script")

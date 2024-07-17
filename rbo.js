@@ -1,4 +1,4 @@
-;;;;(function (d, t) {
+;(function (d, t) {
   var v = d.createElement(t),
     s = d.getElementsByTagName(t)[0]
   v.onload = function () {
@@ -24,11 +24,3 @@
   v.type = "text/javascript"
   s.parentNode.insertBefore(v, s)
 })(document, "script")
-
-let style = document.createElement("style")
-style.innerHTML = `
-.vfrc-avatar {
-    background-image: url("${window.RBO.shopifyAvatarImage}") !important;
-}`
-
-document.head.appendChild(style)

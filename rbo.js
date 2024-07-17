@@ -1,4 +1,4 @@
-;;;(function (d, t) {
+;;;;(function (d, t) {
   var v = d.createElement(t),
     s = d.getElementsByTagName(t)[0]
   v.onload = function () {
@@ -7,8 +7,8 @@
       url: "https://proxy.readybotone.io",
       versionID: "production",
       assistant: {
-        color: window.RBO.shopifyColor,
-        image: window.RBO.shopifyAvatarImage,
+        color: `${window.RBO.shopifyColor}`,
+        image: `${window.RBO.shopifyAvatarImage}`,
       },
       launch: {
         event: {
@@ -31,11 +31,4 @@ style.innerHTML = `
     background-image: url("${window.RBO.shopifyAvatarImage}") !important;
 }`
 
-console.log(
-  "styles",
-  `
-.vfrc-avatar {
-    background-image: url("${window.RBO.shopifyAvatarImage}") !important;
-}`
-)
 document.head.appendChild(style)

@@ -1,4 +1,4 @@
-;(function (d, t) {
+;;(function (d, t) {
   var v = d.createElement(t),
     s = d.getElementsByTagName(t)[0]
   v.onload = function () {
@@ -9,6 +9,7 @@
       assistant: {
         color: `${window.RBO.shopifyColor}`,
         image: `${window.RBO.shopifyAvatarImage}`,
+        avatar: `${window.RBO.shopifyAvatarImage}`,
         stylesheet: "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css",
       },
       launch: {
@@ -25,3 +26,5 @@
   v.type = "text/javascript"
   s.parentNode.insertBefore(v, s)
 })(document, "script")
+
+

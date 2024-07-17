@@ -6,11 +6,11 @@
           url: "https://proxy.readybotone.io",
           versionID: "production",
           assistant: {
-            color: window.RBO.shopifyColor,
+            // color: window.RBO.shopifyColor,
             // image: window.RBO.shopifyAvatarImage,
             // avatar: window.RBO.shopifyAvatarImage,
-            stylesheet:
-              "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css",
+            // stylesheet:
+            //   "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css",
           },
           launch: {
             event: {

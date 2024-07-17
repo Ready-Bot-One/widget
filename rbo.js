@@ -1,4 +1,4 @@
-;;(function (d, t) {
+;;;(function (d, t) {
   var v = d.createElement(t),
     s = d.getElementsByTagName(t)[0]
   v.onload = function () {
@@ -8,8 +8,7 @@
       versionID: "production",
       assistant: {
         color: window.RBO.shopifyColor,
-        // image: window.RBO.shopifyAvatarImage,
-        // avatar: window.RBO.shopifyAvatarImage,
+        image: window.RBO.shopifyAvatarImage,
       },
       launch: {
         event: {
@@ -28,13 +27,15 @@
 
 let style = document.createElement("style")
 style.innerHTML = `
-:root{
-    --colors-primary: "${window.RBO.shopifyColor}" !important; 
-    --colors-fadedPrimary: "${window.RBO.shopifyColor + "73"}" !important;
-}
-
 .vfrc-avatar {
-    background-image: url("${window.RBO.shopifyAvatarImage}") !important;
+    background-image: url(${window.RBO.shopifyAvatarImage}) !important;
 }`
 
+console.log(
+  "styles",
+  `
+.vfrc-avatar {
+    background-image: url(${window.RBO.shopifyAvatarImage}) !important;
+}`
+)
 document.head.appendChild(style)

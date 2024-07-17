@@ -9,7 +9,6 @@
       assistant: {
         color: `${window.RBO.shopifyColor}`,
         image: `${window.RBO.shopifyAvatarImage}`,
-        avatar: `${window.RBO.shopifyAvatarImage}`,
       },
       launch: {
         event: {

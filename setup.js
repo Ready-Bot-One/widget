@@ -8,7 +8,9 @@
     })()
 
   var shopifyStoreName = currentScript?.getAttribute("data-shopify-id")
-  var shopifyAvatarImage = currentScript?.getAttribute("data-avatar-image")
+  var shopifyAvatarImage =
+    currentScript?.getAttribute("data-avatar-image") ??
+    "https://i.imgur.com/dfUvzRb.png"
   var shopifyColor = currentScript?.getAttribute("data-color")
 
   if (!shopifyStoreName) {
@@ -20,8 +22,6 @@
   window.RBO.shopifyStore = shopifyStoreName
   window.RBO.shopifyAvatarImage = shopifyAvatarImage
   window.RBO.shopifyColor = shopifyColor
-
-
 
   var scriptURL = "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.js"
   var scriptElement = document.createElement("script")

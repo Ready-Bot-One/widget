@@ -9,6 +9,7 @@
       assistant: {
         color: `${window.RBO.shopifyColor}`,
         image: `${window.RBO.shopifyAvatarImage}`,
+        stylesheet: "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css",
       },
       launch: {
         event: {

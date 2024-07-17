@@ -1,6 +1,4 @@
-/* .div:empty {
-  display: block !important;
-}
+/* Card & Carousel */
 .vfrc-card{
     width: 200px !important;
 }
@@ -11,6 +9,7 @@
   height: 200px !important;
 }
 
+/* Popups */
 .vfrc-proactive-message{
     scale: 1 !important;
     transition: scale 0.15s ease-in !important;
@@ -26,19 +25,10 @@
     background: #FF00005E !important;
 }
 
-#voiceflow-chat{
-    display: block !important;
-    z-index: 100000 !important;
-  }
-
-.vfrc-widget{
-  height:80dvh !important;
-  margin: 20dvh auto !important;
-}
-  
+/* Avatar & imgs */
 .vfrc-avatar {
   background-color: transparent !important;
   box-shadow: none !important;
 }
 
-*/
+

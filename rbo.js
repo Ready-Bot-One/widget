@@ -2,8 +2,8 @@
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
-          verify: { projectID: "XXX" },
-          url: "https://general-runtime.voiceflow.com",
+          verify: { projectID: "65d930a9e996d1330850cd32" },
+          url: "https://proxy.readybotone.io",
           versionID: "production",
           assistant: {
             persistence: "memory",

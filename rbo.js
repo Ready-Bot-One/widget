@@ -6,10 +6,22 @@
       verify: { projectID: "65d930a9e996d1330850cd32" },
       url: "https://proxy.readybotone.io",
       versionID: "production",
+      renderMode: "widget",
       assistant: {
+        persistence: "memory",
+        header: {
+          hideImage: false,
+          imageUrl: window.RBO.shopifyAvatarImage,
+        },
         color: `${window.RBO.shopifyColor}`,
-        image: `${window.RBO.shopifyAvatarImage}`,
-        avatar: `${window.RBO.shopifyAvatarImage}`,
+        banner: {
+          hide: false,
+          imageUrl: `${window.RBO.shopifyAvatarImage}`,
+        },
+        avatar: {
+          hide: false,
+          imageUrl: `${window.RBO.shopifyAvatarImage}`,
+        },
         stylesheet: "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.css",
       },
       launch: {

@@ -23,7 +23,7 @@
   window.RBO.shopifyAvatarImage = shopifyAvatarImage
   window.RBO.shopifyColor = shopifyColor
 
-  var scriptURL = "https://cdn.jsdelivr.net/gh/ready-bot-one/widget/rbo.js"
+  var scriptURL = "https://cdn.jsdelivr.net/gh/ready-bot-one/widget@v0.24.2/rbo.js"
   var scriptElement = document.createElement("script")
   scriptElement.src = scriptURL
   scriptElement.onerror = function () {

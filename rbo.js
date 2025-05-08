@@ -1,17 +1,25 @@
 ;(function (d, t) {
-  /* ------------------------------------------------------------------
-   * 1. Colour‑utility helpers V0.25.1
-   * ------------------------------------------------------------------ */
+  /* ──────────────────────────────────────────────── *
+   *  1.  Colour utilities
+   * ──────────────────────────────────────────────── */
+
   const toHex = (n) =>
     Math.max(0, Math.min(255, Math.round(n)))
       .toString(16)
       .padStart(2, "0")
-  const rgbToHex = ({ r, g, b }) =>
-    `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase()
+  const rgbHex = (rgb) =>
+    `#${toHex(rgb.r)}${toHex(rgb.g)}${toHex(rgb.b)}`.toUpperCase()
 
-  // Parse '#rrggbb' or 'rgb() / rgba()' → { r, g, b }
+  /** Parse any of:                                                     *
+   *   • "#EA5353"              (hex)                                   *
+   *   • "rgb(234,83,83)"       (CSS rgb)                               *
+   *   • "rgba(234,83,83,0.7)"  (CSS rgba)                              *
+   *   • "166 25 32"            (bare numbers)                          *
+   *   • "166 25 32 / 0.7"      (bare numbers + alpha)                  */
   function parseColour(str) {
     str = str.trim()
+
+    /* 1. #rrggbb ---------------------------------------------------- */
     if (/^#?[0-9a-f]{6}$/i.test(str)) {
       const h = str.replace("#", "")
       return {
@@ -20,22 +28,31 @@
         b: parseInt(h.slice(4, 6), 16),
       }
     }
-    const m = str.match(/rgba?\(\s*([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)/i)
-    if (m) return { r: +m[1], g: +m[2], b: +m[3] }
+
+    /* 2. rgb()/rgba() ------------------------------------------------ */
+    const rgbMatch = str.match(/rgba?\(\s*([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)/i)
+    if (rgbMatch) return { r: +rgbMatch[1], g: +rgbMatch[2], b: +rgbMatch[3] }
+
+    /* 3. "166 25 32"  or  "166 25 32 / 0.7" ------------------------- */
+    const nums = str.split(/[ \/]/).filter(Boolean).map(Number)
+    if (nums.length >= 3 && nums.slice(0, 3).every((n) => Number.isFinite(n))) {
+      const [r, g, b] = nums
+      return { r, g, b } // alpha (index 3) is ignored
+    }
 
     throw new Error("Unsupported colour format: " + str)
   }
 
-  // Lightness tweak via HSL
+  /* Lightness tweak via HSL – positive offset darkens, negative lightens */
   function adjustLum({ r, g, b }, offset) {
     r /= 255
     g /= 255
     b /= 255
     const max = Math.max(r, g, b),
       min = Math.min(r, g, b)
-    let h = 0
-    let s = 0
-    let l = (max + min) / 2
+    let h = 0,
+      s = 0,
+      l = (max + min) / 2
 
     if (max !== min) {
       const d = max - min
@@ -53,7 +70,9 @@
       }
       h /= 6
     }
-    l = Math.min(1, Math.max(0, l + offset))
+
+    l = Math.max(0, Math.min(1, l + offset))
+
     const hue2rgb = (p, q, t) => {
       if (t < 0) t += 1
       if (t > 1) t -= 1
@@ -62,30 +81,31 @@
       if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6
       return p
     }
-    if (s === 0) r = g = b = l
-    else {
+
+    if (s === 0) {
+      r = g = b = l
+    } else {
       const q = l < 0.5 ? l * (1 + s) : l + s - l * s
       const p = 2 * l - q
       r = hue2rgb(p, q, h + 1 / 3)
       g = hue2rgb(p, q, h)
       b = hue2rgb(p, q, h - 1 / 3)
     }
-    return {
-      r: r * 255,
-      g: g * 255,
-      b: b * 255,
-    }
+
+    return { r: r * 255, g: g * 255, b: b * 255 }
   }
 
-  // Build 50‑→ 900 palette
+  /* Build the 10‑step material‑style palette (50 … 900) */
   function createPalette(base) {
     const baseRgb = parseColour(base)
-    const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
-    const palette = {}
-    steps.forEach((lv, i) => {
+    const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+    const palette = Object.create(null)
+
+    levels.forEach((lv, i) => {
       const offset = (i - 4) * 0.12 // –0.48 … +0.60
-      palette[lv] = rgbToHex(adjustLum(baseRgb, offset))
+      palette[lv] = rgbHex(adjustLum(baseRgb, offset))
     })
+
     return palette
   }
 

@@ -1,6 +1,6 @@
 ;(function (d, t) {
   /* ------------------------------------------------------------------
-   * 1. Colour‑utility helpers
+   * 1. Colour‑utility helpers V0.25.1
    * ------------------------------------------------------------------ */
   const toHex = (n) =>
     Math.max(0, Math.min(255, Math.round(n)))

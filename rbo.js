@@ -22,6 +22,7 @@
     /* 1. #rrggbb ---------------------------------------------------- */
     if (/^#?[0-9a-f]{6}$/i.test(str)) {
       const h = str.replace("#", "")
+
       return {
         r: parseInt(h.slice(0, 2), 16),
         g: parseInt(h.slice(2, 4), 16),

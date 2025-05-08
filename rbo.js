@@ -16,7 +16,7 @@
    *   • "rgba(234,83,83,0.7)"  (CSS rgba)                              *
    *   • "166 25 32"            (bare numbers)                          *
    *   • "166 25 32 / 0.7"      (bare numbers + alpha)                  */
-  function parseColour(str) {
+  function parseColour(str = "#A0C144") {
     str = str.trim()
 
     /* 1. #rrggbb ---------------------------------------------------- */
